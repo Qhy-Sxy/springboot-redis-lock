@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <form th:action="@{/upd_do}" th:method="post" th:object="${items}" >
+        <input type="hidden" th:value="*{id}" th:name="id"/>
+        产品名称：<input th:name="name" th:value="*{name}"/><br>
+        产品价钱：<input th:name="price" th:value="*{price}"/><br>
+        产品备注：<input th:name="detail"  th:value="*{detail}"/><br>
+        生产日期：<input th:name="createtime"  th:value="${#dates.format(items.createtime,'yyyy-MM-dd hh:mm:ss')}"/><br>
+        <input type="submit" value="修改">
+    </form>
+</center>
+</body>
+</html>
